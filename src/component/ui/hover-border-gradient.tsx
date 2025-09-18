@@ -43,7 +43,6 @@ export function HoverBorderGradient({
             "radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
     };
 
-
     const highlight =
         "radial-gradient(75% 181.15942028985506% at 50% 50%, #1E3A8A 0%, rgba(30, 64, 175, 0) 100%)"; // blue-900
 
@@ -58,9 +57,7 @@ export function HoverBorderGradient({
 
     return (
         <Tag
-            onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
-                setHovered(true);
-            }}
+            onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             className={cn(
                 "relative inline-flex rounded-full border bg-blue-900/20 hover:bg-blue-800/10 transition duration-500 dark:bg-blue-800/20 items-center justify-center p-px w-fit",
