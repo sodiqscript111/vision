@@ -7,6 +7,8 @@ import Contact from "../component/contact.tsx";
 import AIBusinessCarousel from "../component/servicesCourasel.tsx";
 import AIVisionBlog from "../component/blog.tsx";
 import ServicesPage from "../component/services.tsx";
+import {AnimatedTestimonials} from "../component/animated-testimonials.tsx";
+import FAQSection from "../component/faq.tsx";
 
 function Home() {
     const Counter: React.FC<{ endValue: number | string; duration?: number; isPercentage?: boolean; isVisible: boolean }> = ({ endValue, duration = 2000, isPercentage = false, isVisible }) => {
@@ -107,8 +109,10 @@ function Home() {
                 </div>
             </section>
             <AIBusinessCarousel/>
+            <AnimatedTestimonials autoplay={true} />
             <AIVisionBlog/>
             <Contact />
+            <FAQSection />
         </main>
     );
 }
