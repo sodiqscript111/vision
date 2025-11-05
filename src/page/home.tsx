@@ -70,16 +70,24 @@ function Home() {
         </div>
       </section>
 
-      {/* 2. SOCIAL PROOF - Build trust immediately */}
-      <section className="bg-white py-12 sm:py-16 px-4">
+      
+      {/* 5. DETAILED SERVICES - For deeper interest */}
+      <section className="py-12 sm:py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8">
-            Trusted by Industry Leaders
-          </h2>
-          <AnimatedTestimonials autoplay={true} />
+          <ServicesPage />
         </div>
       </section>
-
+      
+      
+      
+      {/* 4. SOLUTIONS SHOWCASE - Interactive, engaging */}
+      <section className="py-0 h-[500px] sm:py-0 px-4 ">
+        <div className="max-w-7xl mx-auto">
+          <AIBusinessCarousel />
+        </div>
+      </section>
+      
+      
       {/* 3. CORE BENEFITS - Quick wins, scannable */}
       <section ref={ref} className="bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto">
@@ -111,20 +119,24 @@ function Home() {
           </div>
         </div>
       </section>
+      
 
-      {/* 4. SOLUTIONS SHOWCASE - Interactive, engaging */}
-      <section className="py-0 h-[500px] sm:py-0 px-4 ">
+      {/* 2. SOCIAL PROOF - Build trust immediately */}
+      <section className="bg-white py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <AIBusinessCarousel />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8">
+            Trusted by Industry Leaders
+          </h2>
+          <AnimatedTestimonials autoplay={true} />
         </div>
       </section>
+      
+      
 
-      {/* 5. DETAILED SERVICES - For deeper interest */}
-      <section className="py-12 sm:py-16 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <ServicesPage />
-        </div>
-      </section>
+
+
+
+
 
       {/* 6. BLOG / INSIGHTS - Authority & SEO */}
       <section className="py-12 sm:py-16 px-4 bg-white">
