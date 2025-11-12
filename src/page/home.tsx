@@ -55,7 +55,7 @@ function Home() {
       <main className="relative font-inter">
         {/* 1. HERO - High impact, fast CTA */}
         <section className="relative h-[70vh] sm:h-screen bg-blue-900 overflow-hidden">
-        <AniComponent />
+          <AniComponent />
           <div className="absolute inset-0 flex items-center justify-center z-20">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-blue-800/60 to-blue-900/40 z-10" />
             <div className="relative text-center text-white px-6 max-w-4xl z-30">
@@ -80,7 +80,7 @@ function Home() {
         </section>
 
         {/* 4. SOLUTIONS SHOWCASE - Interactive, engaging */}
-        <section className="py-0 h-[500px] sm:py-0 px-4 ">
+        <section className="py-12 sm:py-16 px-4">
           <div className="max-w-7xl mx-auto">
             <AIBusinessCarousel />
           </div>
