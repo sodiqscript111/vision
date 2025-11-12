@@ -786,7 +786,7 @@ export default function ServicesPage() {
       <section className="bg-white py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Solutions</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive AI-powered solutions to transform your business operations
             </p>
