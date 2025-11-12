@@ -54,7 +54,7 @@ function Home() {
   return (
       <main className="relative font-inter">
         {/* 1. HERO - High impact, fast CTA */}
-        <section className="relative h-[50vh] sm:h-screen bg-blue-900 overflow-hidden">
+        <section className="relative h-[70vh] sm:h-screen bg-blue-900 overflow-hidden">
         <AniComponent />
           <div className="absolute inset-0 flex items-center justify-center z-20">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-blue-800/60 to-blue-900/40 z-10" />
