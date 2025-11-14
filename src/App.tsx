@@ -2,6 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import Home from "./page/home.tsx";
 import AllServices from './page/ServicePage.tsx';
 import ServiceDetail from './page/ServiceDetail.tsx';
+
+import SolutionsList from './page/SolutionsList.tsx';
+import SolutionDetails from './page/SolutionDetails.tsx';
 import './App.css'
 
 function App() {
@@ -12,6 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<AllServices />} />
         <Route path="/services/:id" element={<ServiceDetail />} />
+        <Route path="/solutions" element={<SolutionsList />} />
+        <Route path="/solutions/:id" element={<SolutionDetails />} />
     </Routes>
   )
 }
