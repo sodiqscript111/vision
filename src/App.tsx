@@ -1,5 +1,6 @@
 import { Routes, Route, Outlet } from 'react-router-dom';
-import Navbar from './component/Navbar.tsx'; // Assuming you have this
+import Navbar from './component/Navbar.tsx';
+import ScrollToTop from './component/ScrollToTop.tsx'; // Import here
 import Home from "./page/home.tsx";
 import AllServices from './page/ServicePage.tsx';
 import ServiceDetail from './page/ServiceDetail.tsx';
@@ -12,6 +13,7 @@ function Layout() {
     return (
         <div>
             <Navbar />
+            <ScrollToTop /> {/* Add here */}
             <Outlet />
         </div>
     );
@@ -19,7 +21,7 @@ function Layout() {
 
 function App() {
     return (
-        <Routes> {/* No BrowserRouter here—it's already in main.tsx */}
+        <Routes>
             <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<AllServices />} />
