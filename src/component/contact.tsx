@@ -4,19 +4,25 @@ import { Phone, Mail, Calendar, CheckCircle, Globe, Shield, Users, TrendingUp, H
 
 const ContactSection = () => {
   return (
-    <section className="bg-gradient-to-b from-blue-900 to-blue-800 py-20 px-6 text-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 px-6 overflow-hidden bg-slate-900 text-white">
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 via-blue-900/60 to-slate-900/90" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-balance font-display">
             Get Started Today
           </h2>
-          <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-blue-100/80 max-w-3xl mx-auto leading-relaxed font-light">
             Ready to transform your business with AI-powered solutions? Our team of experts is here to guide you through every step of implementation.
           </p>
         </motion.div>
@@ -27,28 +33,26 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-center items-center gap-8 mb-16 text-lg"
+          className="flex flex-col md:flex-row justify-center items-center gap-8 mb-20 text-lg"
         >
-          <a href="tel:+15551234567" className="flex items-center gap-3 hover:text-blue-300 transition-colors">
-            <Phone className="w-5 h-5" />
-            <span>Phone: +1 (555) 123-4567</span>
+          <a href="tel:+15551234567" className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+            <Phone className="w-5 h-5 text-blue-400" />
+            <span>+1 (555) 123-4567</span>
           </a>
-          <span className="hidden md:block text-blue-400">●</span>
-          <a href="mailto:info@ai-business-intelligence.com" className="flex items-center gap-3 hover:text-blue-300 transition-colors">
-            <Mail className="w-5 h-5" />
-            <span>Email: info@ai-business-intelligence.com</span>
+          <a href="mailto:info@ai-business-intelligence.com" className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+            <Mail className="w-5 h-5 text-blue-400" />
+            <span>info@ai-business-intelligence.com</span>
           </a>
-          <span className="hidden md:block text-blue-400">●</span>
           <a
             href="#"
-            className="flex items-center gap-3 bg-white text-blue-900 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl"
+            className="flex items-center gap-3 bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-500 transition-all shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1"
           >
             <Calendar className="w-5 h-5" />
-            <span>Book a free 30-minute discovery call</span>
+            <span>Book a free discovery call</span>
           </a>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* What Happens Next */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -56,11 +60,12 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-              <Clock className="w-7 h-7 text-blue-300" />
+            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 font-display">
+              <Clock className="w-7 h-7 text-blue-400" />
               What Happens Next?
             </h3>
-            <ol className="space-y-6">
+            <div className="space-y-6 relative">
+              <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-blue-900/50"></div>
               {[
                 { step: 1, title: "Discovery Call (30 minutes)", desc: "Understand your challenges and objectives" },
                 { step: 2, title: "Assessment (1-2 weeks)", desc: "Evaluate your current operations and recommend solutions" },
@@ -68,21 +73,21 @@ const ContactSection = () => {
                 { step: 4, title: "Pilot Program (4-8 weeks)", desc: "Proof-of-concept in controlled environment" },
                 { step: 5, title: "Full Implementation", desc: "Scaled rollout with continuous support" },
               ].map((item) => (
-                <motion.li
+                <motion.div
                   key={item.step}
                   whileHover={{ x: 8 }}
-                  className="flex gap-4"
+                  className="flex gap-6 relative z-10"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 bg-white text-blue-900 rounded-full flex items-center justify-center font-bold text-lg">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-900/20 border border-blue-500/50">
                     {item.step}
                   </div>
-                  <div>
-                    <p className="font-semibold text-lg">{item.title}</p>
-                    <p className="text-blue-200">{item.desc}</p>
+                  <div className="pt-1">
+                    <p className="font-bold text-lg mb-1">{item.title}</p>
+                    <p className="text-blue-200/70 leading-relaxed text-sm">{item.desc}</p>
                   </div>
-                </motion.li>
+                </motion.div>
               ))}
-            </ol>
+            </div>
           </motion.div>
 
           {/* Industries & Why Partner */}
@@ -93,9 +98,10 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
+              className="bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm"
             >
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Globe className="w-7 h-7 text-blue-300" />
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 font-display">
+                <Globe className="w-7 h-7 text-blue-400" />
                 Industries We Serve
               </h3>
               <div className="grid grid-cols-2 gap-3 text-sm">
@@ -109,8 +115,8 @@ const ContactSection = () => {
                   "Education & Campuses",
                   "Government & Public Sector",
                 ].map((industry) => (
-                  <div key={industry} className="flex items-center gap-2 bg-blue-800/50 px-4 py-2 rounded-lg">
-                    <CheckCircle className="w-4 h-4 text-blue-300" />
+                  <div key={industry} className="flex items-center gap-2 text-blue-100/80">
+                    <CheckCircle className="w-4 h-4 text-blue-400 flex-shrink-0" />
                     <span>{industry}</span>
                   </div>
                 ))}
@@ -124,8 +130,8 @@ const ContactSection = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <TrendingUp className="w-7 h-7 text-blue-300" />
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 font-display">
+                <TrendingUp className="w-7 h-7 text-blue-400" />
                 Why Partner With Us?
               </h3>
               <ul className="space-y-4 text-sm">
@@ -140,10 +146,10 @@ const ContactSection = () => {
                   <motion.li
                     key={i}
                     whileHover={{ x: 6 }}
-                    className="flex gap-3 items-start"
+                    className="flex gap-3 items-start p-3 rounded-lg hover:bg-white/5 transition-colors"
                   >
-                    <item.icon className="w-5 h-5 text-blue-300 flex-shrink-0 mt-0.5" />
-                    <span>{item.text}</span>
+                    <item.icon className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-blue-100/80 leading-relaxed">{item.text}</span>
                   </motion.li>
                 ))}
               </ul>

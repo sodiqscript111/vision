@@ -291,7 +291,11 @@ export const solutions: Solution[] = [
             "80% reduction in moderation costs",
             "Harmful content removal time: 4.2 hours → 18 minutes",
         ],
-        considerations: ["GDPR and CCPA compliance", "Ethical AI bias testing", "Privacy-compliant facial recognition"],
+        considerations: [
+            "GDPR and CCPA compliance",
+            "Ethical AI bias testing",
+            "Privacy-compliant facial recognition",
+        ],
         targetIndustries: [
             "Social Media Platforms",
             "UGC Platforms",
@@ -338,60 +342,6 @@ export const solutions: Solution[] = [
                 number: 4,
                 title: "Deployment & Monitoring",
                 description: "Phased rollout with continuous monitoring and algorithm improvements",
-            },
-        ],
-    },
-    {
-        id: "operations-modal",
-        title: "Operations Consultancy - Business Optimization",
-        description:
-            "Leverage data analytics and process automation to optimize operations, reduce costs, and improve efficiency across your entire organization.",
-        advantages: [
-            "Customized industry-specific solutions",
-            "40% average cost reduction",
-            "60% process efficiency gains",
-            "6-12 month ROI timeline",
-        ],
-        considerations: ["Implementation timeline varies by scope", "Requires organizational change management"],
-        targetIndustries: ["Manufacturing", "Healthcare", "Retail", "Logistics", "Financial Services", "Technology"],
-        metrics: [
-            { value: "40%", label: "Average Cost Reduction" },
-            { value: "60%", label: "Efficiency Improvement" },
-            { value: "90%", label: "Client Satisfaction" },
-            { value: "6-12", label: "Months to ROI" },
-        ],
-        howItWorks: {
-            description:
-                "Comprehensive operational consulting combines process analysis, data-driven insights, automation implementation, and change management to identify and execute sustainable improvements across your organization.",
-            features: [
-                "Process mapping and bottleneck identification",
-                "Data analytics for performance insights",
-                "Automation implementation strategies",
-                "Change management and staff training",
-                "Performance monitoring and continuous improvement",
-                "Industry best practices integration",
-            ],
-        },
-        implementationSteps: [
-            {
-                number: 1,
-                title: "Current State Analysis",
-                description: "Comprehensive assessment of existing operations and processes",
-            },
-            {
-                number: 2,
-                title: "Strategy Development",
-                description: "Create customized optimization strategy based on findings",
-            },
-            {
-                number: 3,
-                title: "Implementation Planning",
-                description: "Detailed roadmap with timelines and resource allocation",
-            },
-            {
-                number: 4,
-                title: "Execution & Monitoring",
-                description: "Implement changes with continuous monitoring and adjustment",
             },
         ],
     },

@@ -1,21 +1,10 @@
-"use client";
-import { useParams, Link } from "react-router-dom";
+// src/page/BlogDetails.tsx
+import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import { blogPosts } from "../blogPosts";
-import { ChevronLeft } from 'lucide-react';
-
-const container = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.1 }
-    }
-};
-
-const child = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
-};
+import PageHeader from "../component/ui/PageHeader";
 
 export default function BlogDetails() {
     const { id } = useParams<{ id: string }>();
@@ -23,12 +12,12 @@ export default function BlogDetails() {
 
     if (!post) {
         return (
-            <div className="min-h-screen bg-white flex items-center justify-center px-6">
+            <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
                 <div className="text-center max-w-md">
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-3">Post not found</h2>
-                    <p className="text-gray-600 mb-6">The blog post you're looking for doesn't exist.</p>
+                    <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display">Post not found</h2>
+                    <p className="text-slate-600 mb-6">The blog post you're looking for doesn't exist.</p>
                     <Link to="/blog" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
-                        <ChevronLeft size={18} />
+                        <ArrowLeft size={18} />
                         Back to Blog
                     </Link>
                 </div>
@@ -37,75 +26,70 @@ export default function BlogDetails() {
     }
 
     return (
-        <div className="min-h-screen bg-white">
-            <motion.div
-                className="border-b border-gray-200"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-            >
-                <div className="max-w-3xl mx-auto px-6 py-6 flex items-center justify-between">
-                    <Link
-                        to="/blog"
-                        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors group"
-                    >
-                        <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-                        <span className="text-sm font-medium">Back</span>
-                    </Link>
-                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wide">{post.date}</span>
-                </div>
-            </motion.div>
+        <div className="min-h-screen bg-slate-50">
+            <PageHeader
+                title={post.title}
+                subtitle={post.excerpt}
+                backLink="/blog"
+                backText="Back to Blog"
+                badge="Blog Post"
+            />
 
-            <div className="max-w-3xl mx-auto px-6 py-16">
+            <div className="max-w-4xl mx-auto px-6 py-16 -mt-20 relative z-20">
                 <motion.div
-                    variants={container}
-                    initial="hidden"
-                    animate="visible"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100"
                 >
-                    <motion.div variants={child} className="mb-12">
-                        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight text-balance">
-                            {post.title}
-                        </h1>
-                    </motion.div>
-
-                    <motion.div variants={child} className="mb-10 flex items-center gap-4 text-sm text-gray-500 pb-10 border-b border-gray-200">
-                        <span className="font-medium text-gray-700">{post.readTime}</span>
-                        <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                        <span>{post.date}</span>
-                    </motion.div>
-
-                    <motion.div variants={child} className="mb-12">
+                    <div className="relative h-64 md:h-96 overflow-hidden">
                         <img
                             src={post.image || "/placeholder.svg"}
                             alt={post.title}
-                            className="w-full aspect-video object-cover rounded-lg bg-gray-100"
+                            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                         />
-                    </motion.div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                    </div>
 
-                    <motion.div
-                        variants={child}
-                        className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
-                        dangerouslySetInnerHTML={{
-                            __html: post.content
-                                .replace(/<h2>/g, '<h2 class="text-3xl font-bold text-gray-900 mt-12 mb-4">')
-                                .replace(/<h3>/g, '<h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-3">')
-                                .replace(/<p>/g, '<p class="text-base mb-5 leading-relaxed">')
-                                .replace(/<strong>/g, '<strong class="font-semibold text-gray-900">'),
-                        }}
-                    />
-                </motion.div>
+                    <div className="p-8 md:p-12">
+                        <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 mb-8 border-b border-slate-100 pb-8">
+                            <div className="flex items-center gap-2">
+                                <Calendar className="w-4 h-4 text-blue-500" />
+                                <span>{post.date}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Clock className="w-4 h-4 text-blue-500" />
+                                <span>{post.readTime}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <User className="w-4 h-4 text-blue-500" />
+                                <span>{post.author}</span>
+                            </div>
+                        </div>
 
-                <motion.div
-                    variants={child}
-                    className="mt-16 pt-10 border-t border-gray-200"
-                >
-                    <Link
-                        to="/"
-                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors group"
-                    >
-                        <ChevronLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-                        <span>Back to all posts</span>
-                    </Link>
+                        <div
+                            className="prose prose-lg prose-slate max-w-none"
+                            dangerouslySetInnerHTML={{
+                                __html: post.content
+                                    .replace(/<h2>/g, '<h2 class="text-3xl font-bold text-slate-900 mt-12 mb-6 font-display">')
+                                    .replace(/<h3>/g, '<h3 class="text-2xl font-bold text-slate-800 mt-8 mb-4 font-display">')
+                                    .replace(/<p>/g, '<p class="text-slate-600 leading-relaxed mb-6">')
+                                    .replace(/<strong>/g, '<strong class="font-semibold text-slate-900">')
+                                    .replace(/<ul>/g, '<ul class="list-disc pl-6 space-y-2 text-slate-600 mb-8">')
+                                    .replace(/<li>/g, '<li class="pl-2">')
+                            }}
+                        />
+
+                        <div className="mt-12 pt-8 border-t border-slate-100">
+                            <Link
+                                to="/blog"
+                                className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors group"
+                            >
+                                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                                Back to Articles
+                            </Link>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </div>

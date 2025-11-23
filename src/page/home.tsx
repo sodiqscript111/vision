@@ -52,119 +52,146 @@ function Home() {
   })
 
   return (
-      <main className="relative font-inter">
-        {/* 1. HERO - High impact, fast CTA */}
-        <section className="relative h-[70vh] sm:h-screen bg-blue-900 overflow-hidden">
-          <AniComponent />
-          <div className="absolute inset-0 flex items-center justify-center z-20">
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-blue-800/60 to-blue-900/40 z-10" />
-            <div className="relative text-center text-white px-6 max-w-4xl z-30">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight drop-shadow-2xl">
-                AI-Powered Business Intelligence
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mb-8 text-blue-50 leading-relaxed drop-shadow-lg">
-                Transform your business with cutting-edge computer vision, analytics, and smart automation solutions
-              </p>
-              <HoverBorderGradient containerClassName="bg-white text-blue-900 font-semibold px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg shadow-xl">
-                Get Started Now
-              </HoverBorderGradient>
-            </div>
-          </div>
-        </section>
+    <main className="relative font-inter">
+      {/* 1. HERO - High impact, fast CTA */}
+      {/* 1. HERO - High impact, fast CTA */}
+      <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
+        <AniComponent />
+        <div className="absolute inset-0 z-20">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 via-blue-900/60 to-slate-900/90 z-10" />
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light z-10"></div>
+        </div>
 
-        {/* 5. DETAILED SERVICES - For deeper interest */}
-        <section className="py-12 sm:py-16 px-4 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <ServicesPage />
+        <div className="relative text-center text-white px-4 max-w-5xl z-30 flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-8 animate-fade-in-up">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+            <span className="text-sm font-medium text-blue-100">Next Generation Business Intelligence</span>
           </div>
-        </section>
 
-        {/* 4. SOLUTIONS SHOWCASE - Interactive, engaging */}
-        <section className="py-12 sm:py-16 px-4">
-          <div className="max-w-7xl mx-auto">
-            <AIBusinessCarousel />
-          </div>
-        </section>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.1] tracking-tight drop-shadow-2xl text-balance">
+            AI-Powered <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-200 to-white">
+              Business Intelligence
+            </span>
+          </h1>
 
-        {/* 3. CORE BENEFITS - BENTO GRID LAYOUT */}
-        <section ref={ref} className="bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">Why Businesses Choose Us</h2>
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-                Proven results that drive real business value
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 auto-rows-max">
-              {[
-                {
-                  endValue: 40,
-                  isPercentage: true,
-                  title: "Cost Reduction",
-                  desc: "Save up to 40% on operational costs",
-                  span: "lg:col-span-2",
-                },
-                {
-                  endValue: 80,
-                  isPercentage: true,
-                  title: "Time Savings",
-                  desc: "Reduce manual tasks by 80%",
-                  span: "lg:col-span-2",
-                },
-                { endValue: "✓", title: "Reduced Manpower", desc: "Optimize workforce allocation", span: "" },
-                { endValue: 25, isPercentage: true, title: "Increased Revenue", desc: "Boost sales by 25%", span: "" },
-                {
-                  endValue: 99,
-                  isPercentage: true,
-                  title: "Improved Accuracy",
-                  desc: "99% inventory accuracy",
-                  span: "",
-                },
-                { endValue: "∞", title: "Scalable Solutions", desc: "Scale across locations", span: "" },
-              ].map((item, index) => (
-                  <div
-                      key={index}
-                      className={`bg-white rounded-xl p-5 sm:p-6 shadow-sm border border-gray-100 text-center ${item.span}`}
-                  >
-                    <div className="text-4xl sm:text-5xl font-extrabold text-blue-600 mb-2">
-                      <Counter endValue={item.endValue} isPercentage={item.isPercentage} isVisible={inView} />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-sm sm:text-base text-gray-600">{item.desc}</p>
-                  </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          <p className="text-lg sm:text-xl md:text-2xl mb-10 text-blue-100/80 leading-relaxed max-w-3xl mx-auto text-balance font-light">
+            Transform your business with cutting-edge computer vision, analytics, and smart automation solutions that drive real growth.
+          </p>
 
-        {/* 2. SOCIAL PROOF - Build trust immediately */}
-        <section className="bg-white py-12 sm:py-6 px-4">
-          <div className="max-w-7xl mx-auto">
-            <AnimatedTestimonials autoplay={true} />
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <HoverBorderGradient containerClassName="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 text-lg shadow-lg shadow-blue-500/20 transition-all duration-300 hover:scale-105">
+              Get Started Now
+            </HoverBorderGradient>
+            <button className="px-8 py-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold hover:bg-white/10 transition-all duration-300">
+              View Solutions
+            </button>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 6. BLOG / INSIGHTS - Authority & SEO */}
-        <section className="py-12 sm:py-16 px-4 bg-blue-200">
-          <div className="max-w-7xl mx-auto">
-            <AIVisionBlog />
-          </div>
-        </section>
+      {/* 5. DETAILED SERVICES - For deeper interest */}
+      <section className="py-12 sm:py-0 px-0 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <ServicesPage />
+        </div>
+      </section>
 
-        {/* 7. FAQ - Reduce friction */}
-        <section className="py-6 sm:py-10 px-4 bg-gray-50">
-          <div className="max-w-4xl mx-auto">
-            <FAQSection />
-          </div>
-        </section>
+      {/* 4. SOLUTIONS SHOWCASE - Interactive, engaging */}
+      <section className="py-0 sm:py-0 px-4">
+        <div className="max-w-6xl mx-auto">
+          <AIBusinessCarousel />
+        </div>
+      </section>
 
-        {/* 8. FINAL CTA - Contact */}
-        <section className="py-12 sm:py-16 px-4">
-          <div className="max-w-7xl mx-auto">
-            <Contact />
+      {/* 3. CORE BENEFITS - BENTO GRID LAYOUT */}
+      {/* 3. CORE BENEFITS - BENTO GRID LAYOUT */}
+      <section ref={ref} className="bg-white py-24 sm:py-32 px-4 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">Why Businesses Choose Us</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto font-light">
+              Proven results that drive real business value through intelligent automation.
+            </p>
           </div>
-        </section>
-      </main>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
+            {[
+              {
+                endValue: 40,
+                isPercentage: true,
+                title: "Cost Reduction",
+                desc: "Save up to 40% on operational costs",
+                span: "lg:col-span-2",
+                gradient: "from-blue-50 to-white"
+              },
+              {
+                endValue: 80,
+                isPercentage: true,
+                title: "Time Savings",
+                desc: "Reduce manual tasks by 80%",
+                span: "lg:col-span-2",
+                gradient: "from-indigo-50 to-white"
+              },
+              { endValue: "✓", title: "Reduced Manpower", desc: "Optimize workforce allocation", span: "", gradient: "from-white to-white" },
+              { endValue: 25, isPercentage: true, title: "Increased Revenue", desc: "Boost sales by 25%", span: "", gradient: "from-white to-white" },
+              {
+                endValue: 99,
+                isPercentage: true,
+                title: "Improved Accuracy",
+                desc: "99% inventory accuracy",
+                span: "",
+                gradient: "from-white to-white"
+              },
+              { endValue: "∞", title: "Scalable Solutions", desc: "Scale across locations", span: "", gradient: "from-white to-white" },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`group relative bg-gradient-to-br ${item.gradient} rounded-2xl p-8 shadow-sm border border-slate-200/60 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-500 hover:-translate-y-1 ${item.span}`}
+              >
+                <div className="text-5xl sm:text-6xl font-extrabold text-blue-600 mb-4 tracking-tighter">
+                  <Counter endValue={item.endValue} isPercentage={item.isPercentage} isVisible={inView} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-500/5 rounded-tl-full -mr-4 -mb-4 transition-transform group-hover:scale-150 duration-500"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 2. SOCIAL PROOF - Build trust immediately */}
+      <section className="bg-white py-12 sm:py-6 px-4">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedTestimonials autoplay={true} />
+        </div>
+      </section>
+
+      {/* 6. BLOG / INSIGHTS - Authority & SEO */}
+      <section className="py-12 sm:py-16 px-4 bg-blue-200">
+        <div className="max-w-7xl mx-auto">
+          <AIVisionBlog />
+        </div>
+      </section>
+
+      {/* 7. FAQ - Reduce friction */}
+      <section className="py-6 sm:py-10 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <FAQSection />
+        </div>
+      </section>
+
+      {/* 8. FINAL CTA - Contact */}
+      <section className="py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <Contact />
+        </div>
+      </section>
+    </main>
   )
 }
 
