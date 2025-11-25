@@ -64,10 +64,7 @@ function Home() {
         </div>
 
         <div className="relative text-center text-white px-4 max-w-5xl z-30 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-8 animate-fade-in-up">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-            <span className="text-sm font-medium text-blue-100">Next Generation Business Intelligence</span>
-          </div>
+         
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.1] tracking-tight drop-shadow-2xl text-balance">
             AI-Powered <br />
@@ -81,7 +78,7 @@ function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <HoverBorderGradient containerClassName="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-2 py-1 text-lg shadow-lg shadow-blue-500/20 transition-all duration-300 hover:scale-105">
+            <HoverBorderGradient containerClassName="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-2 py- text-lg shadow-lg shadow-blue-500/20 transition-all duration-300 hover:scale-105">
               Get Started Now
             </HoverBorderGradient>
             <button className="px-8 py-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold hover:bg-white/10 transition-all duration-300">
