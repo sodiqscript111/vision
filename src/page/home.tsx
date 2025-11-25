@@ -10,6 +10,7 @@ import Contact from "../component/contact.tsx"
 import AIBusinessCarousel from "../component/servicesCourasel.tsx"
 import AIVisionBlog from "../component/blog.tsx"
 import ServicesPage from "../component/services.tsx"
+
 import { AnimatedTestimonials } from "../component/animated-testimonials.tsx"
 import FAQSection from "../component/faq.tsx"
 
@@ -91,15 +92,15 @@ function Home() {
       </section>
 
       {/* 5. DETAILED SERVICES - For deeper interest */}
-      <section className="py-12 sm:py-0 px-0 bg-white">
+      <section className="py-1 sm:py-0 px-0 bg-white">
         <div className="max-w-6xl mx-auto">
           <ServicesPage />
         </div>
       </section>
 
       {/* 4. SOLUTIONS SHOWCASE - Interactive, engaging */}
-      <section className="py-0 sm:py-0 px-4">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-0 sm:py-0 px-0">
+        <div className="max-w-9xl mx-auto">
           <AIBusinessCarousel />
         </div>
       </section>

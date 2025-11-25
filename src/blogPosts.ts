@@ -8,6 +8,7 @@ export interface BlogPost {
     image: string;
     readTime: string;
     date: string;
+    author: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -39,6 +40,7 @@ export const blogPosts: BlogPost[] = [
         image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=450&fit=crop",
         readTime: "5 min read",
         date: "March 15, 2024",
+        author: "Dr. Sarah Chen",
     },
     {
         id: 2,
@@ -72,6 +74,7 @@ export const blogPosts: BlogPost[] = [
         image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&h=450&fit=crop",
         readTime: "4 min read",
         date: "March 12, 2024",
+        author: "Michael Chang",
     },
     {
         id: 3,
@@ -108,5 +111,6 @@ export const blogPosts: BlogPost[] = [
         image: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=800&h=450&fit=crop",
         readTime: "6 min read",
         date: "March 10, 2024",
+        author: "Alex Rivera",
     },
 ];

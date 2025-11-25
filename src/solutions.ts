@@ -4,6 +4,7 @@ export interface Solution {
     id: string;
     title: string;
     description: string;
+    image: string;
     advantages: string[];
     considerations: string[];
     targetIndustries: string[];
@@ -25,6 +26,7 @@ export const solutions: Solution[] = [
         title: "Healthcare - AI-Powered Medical Diagnostics",
         description:
             "Transform healthcare delivery with AI-assisted medical imaging, patient flow optimization, and administrative automation to improve outcomes and reduce costs.",
+        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2070",
         advantages: [
             "94%+ accuracy matching specialist radiologists",
             "32-40% reduction in diagnostic reading time",
@@ -90,6 +92,7 @@ export const solutions: Solution[] = [
         title: "Retail - Smart Checkout & Inventory Automation",
         description:
             "Revolutionize retail operations with cashierless checkout, electronic shelf labels, real-time inventory management, and advanced loss prevention.",
+        image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=2070",
         advantages: [
             "99.7% accuracy in item identification",
             "30-second checkout time vs. 8 minutes traditional",
@@ -155,6 +158,7 @@ export const solutions: Solution[] = [
         title: "Security - Intelligent Surveillance Systems",
         description:
             "Enhance security with AI-powered video analytics, facial recognition, license plate recognition, and integrated access control for comprehensive threat detection and prevention.",
+        image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=2070",
         advantages: [
             "88% reduction in false alarms",
             "73% reduction in security incidents",
@@ -220,6 +224,7 @@ export const solutions: Solution[] = [
         title: "Autonomous Vehicles - Vision-Powered Navigation",
         description:
             "Enable autonomous vehicle operation with comprehensive computer vision systems, sensor fusion, and AI-powered navigation for safe and reliable autonomous delivery.",
+        image: "https://images.unsplash.com/photo-1494548162494-384bba4ab999?auto=format&fit=crop&q=80&w=2080",
         advantages: [
             "99.97% successful route navigation",
             "Zero at-fault incidents in 500K miles",
@@ -285,6 +290,7 @@ export const solutions: Solution[] = [
         title: "Social Media - Content Intelligence Platform",
         description:
             "Automate content moderation, brand safety, copyright protection, and user verification at scale with AI-powered computer vision and deep learning.",
+        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1974",
         advantages: [
             "97% accuracy in content classification",
             "6 hours → 30 seconds content review time",
