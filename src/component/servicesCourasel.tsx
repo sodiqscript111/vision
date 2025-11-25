@@ -38,7 +38,52 @@ export default function SolutionsSection() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[400px]">
+        {/* Mobile Carousel View */}
+        <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 scrollbar-hide">
+          {displayedSolutions.map((solution) => (
+            <motion.div
+              key={solution.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex-shrink-0 w-[85vw] sm:w-[60vw] h-[400px] snap-center relative overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-200"
+            >
+              {/* Image Background with Overlay */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src={solution.image}
+                  alt={solution.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-900/40 to-transparent opacity-80" />
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
+                <h3 className="text-2xl font-bold mb-3 leading-tight">
+                  {solution.title.split(" - ")[1] || solution.title}
+                </h3>
+                <p className="text-blue-100/90 mb-6 line-clamp-2">
+                  {solution.description}
+                </p>
+
+                <Link
+                  to={`/solutions/${solution.id}`}
+                  className="inline-flex items-center gap-2 text-white font-semibold"
+                >
+                  Learn more
+                  <span className="bg-white/20 p-1.5 rounded-full">
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop Bento Grid View */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[400px]">
           {displayedSolutions.map((solution, index) => (
             <motion.div
               key={solution.id}

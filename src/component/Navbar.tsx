@@ -4,21 +4,13 @@ import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-    // Handle scroll effect
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+
 
     // Close mobile menu on route change
     useEffect(() => {
@@ -34,8 +26,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed w-full z-50 top-0 left-0 transition-all duration-300 ${scrolled || isMobileMenuOpen ? "glass py-3" : "bg-transparent py-5"
-                }`}
+            className="fixed w-full z-50 top-0 left-0 transition-all duration-300 glass py-3"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-12">

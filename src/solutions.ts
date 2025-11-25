@@ -290,7 +290,7 @@ export const solutions: Solution[] = [
         title: "Social Media - Content Intelligence Platform",
         description:
             "Automate content moderation, brand safety, copyright protection, and user verification at scale with AI-powered computer vision and deep learning.",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1974",
+        image: "/simple_content_intelligence_1764066909153.png",
         advantages: [
             "97% accuracy in content classification",
             "6 hours → 30 seconds content review time",
