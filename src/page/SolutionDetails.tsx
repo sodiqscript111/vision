@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { solutions } from "../solutions";
 import PageHeader from "../component/ui/PageHeader";
 import GlassCard from "../component/ui/GlassCard";
+import Counter from "../component/ui/Counter";
 
 const container = {
     hidden: { opacity: 0 },
@@ -78,7 +79,9 @@ export default function SolutionDetails() {
                                     className="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center hover:shadow-md transition-shadow"
                                     whileHover={{ y: -5 }}
                                 >
-                                    <div className="text-3xl font-bold text-blue-600 mb-2 font-display">{metric.value}</div>
+                                    <div className="text-2xl font-bold text-blue-600 mb-2 font-display">
+                                        <Counter value={metric.value} />
+                                    </div>
                                     <div className="text-sm font-medium text-slate-500 uppercase tracking-wide">{metric.label}</div>
                                 </motion.div>
                             ))}

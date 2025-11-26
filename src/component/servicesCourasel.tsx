@@ -6,11 +6,6 @@ import { solutions } from "../solutions.ts"
 import { ArrowRight } from "lucide-react"
 
 export default function SolutionsSection() {
-  // Filter out the "Medical Diagnostics" solution and keep the rest
-  const displayedSolutions = solutions.filter(
-    (solution) => !solution.title.includes("Medical Diagnostics")
-  )
-
   return (
     <section className="relative py-7 px-4 overflow-hidden">
       {/* Blue Gradient Background */}
@@ -40,7 +35,7 @@ export default function SolutionsSection() {
 
         {/* Mobile Carousel View */}
         <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 scrollbar-hide">
-          {displayedSolutions.map((solution) => (
+          {solutions.map((solution) => (
             <motion.div
               key={solution.id}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -84,7 +79,7 @@ export default function SolutionsSection() {
 
         {/* Desktop Bento Grid View */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[400px]">
-          {displayedSolutions.map((solution, index) => (
+          {solutions.map((solution, index) => (
             <motion.div
               key={solution.id}
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
@@ -97,8 +92,7 @@ export default function SolutionsSection() {
                 stiffness: 100,
                 damping: 20
               }}
-              className={`group relative overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-500 ${index === 0 || index === 3 ? "md:col-span-2" : ""
-                }`}
+              className="group relative overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-500"
             >
               {/* Image Background with Overlay */}
               <div className="absolute inset-0 z-0">

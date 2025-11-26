@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Phone, Mail, Calendar, CheckCircle, Globe, Shield, Users, TrendingUp, HeadphonesIcon, Clock } from "lucide-react";
+import { Phone, Mail, Calendar, CheckCircle, Globe, Shield, Users, TrendingUp, Clock } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -52,35 +52,58 @@ const ContactSection = () => {
           </a>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 mb-24">
           {/* What Happens Next */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 font-display">
+          <div>
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl font-bold mb-8 flex items-center gap-3 font-display"
+            >
               <Clock className="w-7 h-7 text-blue-400" />
               What Happens Next?
-            </h3>
+            </motion.h3>
             <div className="space-y-6 relative">
-              <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-blue-900/50"></div>
+              {/* Background Line (faint) */}
+              <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-blue-900/30"></div>
+
+              {/* Animated Line */}
+              <motion.div
+                initial={{ height: 0 }}
+                whileInView={{ height: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 2.5, ease: "linear" }}
+                className="absolute left-[19px] top-4 w-0.5 bg-blue-500"
+                style={{ maxHeight: "calc(100% - 2rem)" }}
+              ></motion.div>
+
               {[
                 { step: 1, title: "Discovery Call (30 minutes)", desc: "Understand your challenges and objectives" },
                 { step: 2, title: "Assessment (1-2 weeks)", desc: "Evaluate your current operations and recommend solutions" },
                 { step: 3, title: "Proposal (3-5 days)", desc: "Detailed plan with ROI projections and timeline" },
                 { step: 4, title: "Pilot Program (4-8 weeks)", desc: "Proof-of-concept in controlled environment" },
                 { step: 5, title: "Full Implementation", desc: "Scaled rollout with continuous support" },
-              ].map((item) => (
+              ].map((item, index) => (
                 <motion.div
                   key={item.step}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.5, duration: 0.5 }}
                   whileHover={{ x: 8 }}
                   className="flex gap-6 relative z-10"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-900/20 border border-blue-500/50">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.5, duration: 0.3, type: "spring" }}
+                    className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-900/20 border border-blue-500/50"
+                  >
                     {item.step}
-                  </div>
+                  </motion.div>
                   <div className="pt-1">
                     <p className="font-bold text-lg mb-1">{item.title}</p>
                     <p className="text-blue-200/70 leading-relaxed text-sm">{item.desc}</p>
@@ -88,23 +111,22 @@ const ContactSection = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Industries & Why Partner */}
-          <div className="space-y-12">
-            {/* Industries */}
+          {/* Industries */}
+          <div>
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm"
+              className="bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm h-full"
             >
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 font-display">
                 <Globe className="w-7 h-7 text-blue-400" />
                 Industries We Serve
               </h3>
-              <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                 {[
                   "Retail & E-commerce",
                   "Manufacturing & Industrial",
@@ -115,45 +137,80 @@ const ContactSection = () => {
                   "Education & Campuses",
                   "Government & Public Sector",
                 ].map((industry) => (
-                  <div key={industry} className="flex items-center gap-2 text-blue-100/80">
+                  <div key={industry} className="flex items-center gap-2 text-blue-100/80 p-2 rounded-lg hover:bg-white/5 transition-colors">
                     <CheckCircle className="w-4 h-4 text-blue-400 flex-shrink-0" />
                     <span>{industry}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
+          </div>
+        </div>
 
-            {/* Why Partner */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 font-display">
-                <TrendingUp className="w-7 h-7 text-blue-400" />
-                Why Partner With Us?
-              </h3>
-              <ul className="space-y-4 text-sm">
-                {[
-                  { icon: Shield, text: "Proven Track Record: 200+ successful implementations across 15 industries" },
-                  { icon: Users, text: "Expert Team: PhDs in computer vision, former Fortune 500 executives, certified AI specialists" },
-                  { icon: CheckCircle, text: "Technology Agnostic: We recommend best-fit solutions, not vendor lock-in" },
-                  { icon: Globe, text: "End-to-End Service: From strategy to implementation to ongoing optimization" },
-                  { icon: TrendingUp, text: "ROI Guarantee: If we don't deliver projected results, we'll work for free until we do" },
-                  { icon: HeadphonesIcon, text: "24/7 Support: Global support team available around the clock" },
-                ].map((item, i) => (
-                  <motion.li
-                    key={i}
-                    whileHover={{ x: 6 }}
-                    className="flex gap-3 items-start p-3 rounded-lg hover:bg-white/5 transition-colors"
-                  >
-                    <item.icon className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-blue-100/80 leading-relaxed">{item.text}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+        {/* Why Partner With Us - Full Width Bottom */}
+        <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-3 justify-center mb-8"
+          >
+            <TrendingUp className="w-10 h-10 text-[#6b9bd1]" />
+            <h3 className="text-4xl font-bold text-white font-display">Why Partner With Us?</h3>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { icon: Shield, title: "Proven Track Record", desc: "200+ successful implementations across 15 industries" },
+              { icon: Users, title: "Expert Team", desc: "PhDs in computer vision, former Fortune 500 executives" },
+              { icon: CheckCircle, title: "Technology Agnostic", desc: "We recommend best-fit solutions, not vendor lock-in" },
+              { icon: Globe, title: "End-to-End Service", desc: "From strategy to implementation and ongoing support" },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -5, backgroundColor: "rgba(107, 155, 209, 0.1)" }}
+                className="group relative flex items-start gap-4 p-8 rounded-2xl border border-[#6b9bd1]/20 bg-[#1e3a5f]/40 backdrop-blur-md overflow-hidden transition-all duration-300"
+              >
+                {/* Hover Gradient Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/80 via-[#2d4a6f]/90 to-[#1e3a5f]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+                <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-[#6b9bd1]/20 border border-[#6b9bd1]/30 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-8 h-8 text-[#6b9bd1]" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-white mb-2">{item.title}</h4>
+                  <p className="text-[#b8c9e0] leading-relaxed text-base">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            {[
+              { value: "200+", label: "Projects Delivered" },
+              { value: "15", label: "Industries Served" },
+              { value: "98%", label: "Client Satisfaction" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + (index * 0.1), duration: 0.5 }}
+                className="relative p-8 rounded-2xl border border-[#6b9bd1]/20 bg-[#1e3a5f]/60 backdrop-blur-md text-center overflow-hidden group hover:-translate-y-1 transition-transform duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f]/60 via-[#4a90e2]/10 to-[#1e3a5f]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className="text-4xl font-bold text-[#6b9bd1] mb-2">{stat.value}</div>
+                  <div className="text-base text-[#b8c9e0]">{stat.label}</div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

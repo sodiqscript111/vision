@@ -19,7 +19,7 @@ const child = {
 
 export default function AIVisionBlog() {
   return (
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-black mb-4">AI Vision Insights</h2>

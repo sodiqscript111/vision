@@ -33,12 +33,15 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const handleNext = () => {
+    setDirection(1);
     setActive((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
+    setDirection(-1);
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
@@ -47,6 +50,23 @@ export const AnimatedTestimonials = ({
     const interval = setInterval(handleNext, 6000);
     return () => clearInterval(interval);
   }, [autoplay]);
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 100 : -100,
+      opacity: 0,
+    }),
+  };
 
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-4">
@@ -63,14 +83,20 @@ export const AnimatedTestimonials = ({
             </div>
 
             {/* Active Testimonial */}
-            <div className="relative z-10">
-              <AnimatePresence mode="wait">
+            <div className="relative z-10 overflow-hidden min-h-[300px] flex items-center">
+              <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={active}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 },
+                  }}
+                  className="w-full"
                 >
                   <TestimonialCard testimonial={testimonials[active]} isActive />
                 </motion.div>
@@ -107,9 +133,8 @@ export const AnimatedTestimonials = ({
               <button
                 key={i}
                 onClick={() => setActive(i)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  i === active ? "bg-blue-600 w-8" : "bg-blue-200"
-                }`}
+                className={`w-2 h-2 rounded-full transition-all ${i === active ? "bg-blue-600 w-8" : "bg-blue-200"
+                  }`}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
             ))}
@@ -123,9 +148,8 @@ export const AnimatedTestimonials = ({
 const TestimonialCard = ({ testimonial, isActive = false }: { testimonial: Testimonial; isActive?: boolean }) => {
   return (
     <div
-      className={`bg-white rounded-2xl p-8 shadow-xl border-2 transition-all duration-300 ${
-        isActive ? "border-blue-200 shadow-2xl" : "border-transparent"
-      }`}
+      className={`bg-white rounded-2xl p-8 shadow-xl border-2 transition-all duration-300 ${isActive ? "border-blue-200 shadow-2xl" : "border-transparent"
+        }`}
     >
       <blockquote className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-6">
         "{testimonial.quote}"

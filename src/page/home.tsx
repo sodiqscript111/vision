@@ -177,14 +177,14 @@ function Home() {
       </section>
 
       {/* 7. FAQ - Reduce friction */}
-      <section className="py-6 sm:py-10 px-4 bg-gray-50">
+      <section className="py-6 sm:py-10 px-4 bg-white ">
         <div className="max-w-4xl mx-auto">
           <FAQSection />
         </div>
       </section>
 
       {/* 8. FINAL CTA - Contact */}
-      <section className="py-12 sm:py-16 px-4">
+      <section className="py-12 sm:py-0 px-4">
         <div className="max-w-7xl mx-auto">
           <Contact />
         </div>
